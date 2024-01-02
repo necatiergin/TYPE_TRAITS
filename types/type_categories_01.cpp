@@ -1,0 +1,14 @@
+template <typename T> struct is_void;
+template <typename T> struct is_integral;
+template <typename T> struct is_floating_point;
+template <typename T> struct is_array;
+template <typename T> struct is_pointer;
+template <typename T> struct is_reference;
+template <typename T> struct is_member_object_pointer;
+template <typename T> struct is_member_function_pointer;
+template <typename T> struct is_enum;
+template <typename T> struct is_union;
+template <typename T> struct is_class;
+template <typename T> struct is_function;
+template <typename T> struct is_lvalue_reference;
+template <typename T> struct is_rvalue_reference;
