@@ -1,3 +1,5 @@
+//std::is_array implementation 
+
 #include <type_traits>
 #include <iostream>
 
@@ -16,8 +18,8 @@ constexpr bool IsArray_v = IsArray<T>::value;
 int main()
 {
 	std::cout << std::boolalpha;
-	std::cout << IsArray_v<int> << "\n";
-	std::cout << IsArray_v<int []> << "\n";
-	std::cout << IsArray_v<const int []> << "\n";
-	std::cout << IsArray_v<int [5]> << "\n";
+	std::cout << IsArray_v<int> << '\n';
+	std::cout << IsArray_v<int[]> << '\n';
+	std::cout << IsArray_v<const int[]> << '\n';
+	std::cout << IsArray_v<int[5]> << '\n';
 }
