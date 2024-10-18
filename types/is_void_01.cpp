@@ -1,3 +1,5 @@
+//is_void implementation
+
 #include <type_traits>
 #include <iostream>
 
