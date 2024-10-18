@@ -1,11 +1,11 @@
 #include <type_traits>
 #include <iostream>
 
-template< class T >
+template <class T>
 struct IsFloatingPoint : std::integral_constant<bool,
-    std::is_same<float, typename std::remove_cv<T>::type>::value ||
-    std::is_same<double, typename std::remove_cv<T>::type>::value ||
-    std::is_same<long double, typename std::remove_cv<T>::type>::value
+    std::is_same_v<float, std::remove_cv_t<T>> ||
+    std::is_same_v<double, std::remove_cv_t<T>> ||
+    std::is_same_v<long double, std::remove_cv_t<T>>
 > {};
 
 template< class T >
@@ -13,11 +13,8 @@ inline constexpr bool isFloatingPoint_v = IsFloatingPoint<T>::value;
 
 int main()
 {
-    std::cout << std::boolalpha;
-
-    std::cout << isFloatingPoint_v<int> << "\n"; //false
-    std::cout << isFloatingPoint_v<float> << "\n"; //true
-    std::cout << isFloatingPoint_v<const float> << "\n"; //true
-    std::cout << isFloatingPoint_v<double> << "\n"; //true
-    std::cout << isFloatingPoint_v<double const> << "\n"; //true
+    constexpr auto b1 = isFloatingPoint_v<int>;
+    constexpr auto b2 = isFloatingPoint_v<float>;
+    constexpr auto b3 = isFloatingPoint_v<const float>;
+    constexpr auto b4 = isFloatingPoint_v<volatile float>;
 }
