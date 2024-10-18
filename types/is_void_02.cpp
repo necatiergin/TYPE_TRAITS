@@ -1,3 +1,5 @@
+//std::is_void implementation
+
 #include <type_traits>
 #include <iostream>
 
@@ -10,7 +12,7 @@ constexpr bool IsVoid_v = IsVoid<T>::value;
 int main()
 {
 	std::cout << std::boolalpha;
-	std::cout << IsVoid_v<int> << "\n";
-	std::cout << IsVoid_v<void> << "\n";
-	std::cout << IsVoid_v<const void> << "\n";
+	std::cout << IsVoid_v<int> << '\n';
+	std::cout << IsVoid_v<void> << '\n';
+	std::cout << IsVoid_v<const void> << '\n';
 }
