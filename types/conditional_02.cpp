@@ -1,12 +1,20 @@
-#include <vector>
 #include <type_traits>
 #include <iostream>
+
+void foo(int)
+{
+	std::cout << "int\n";
+}
+
+void foo(double)
+{
+	std::cout << "double\n";
+}
 
 template <typename T>
 void func(T x)
 {
-	std::conditional_t<std::is_floating_point_v<T>, int, double> val{};
-	std::cout << typeid(val).name() << "\n";
+	foo(std::conditional_t<std::is_floating_point_v<T>, double, int>{});;
 }
 
 int main()
