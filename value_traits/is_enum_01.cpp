@@ -22,4 +22,13 @@ int main()
     static_assert(std::is_enum_v<const Color>);
     static_assert(std::is_enum_v<volatile Color>);
     static_assert(std::is_enum_v<const volatile Color>);
+
+    enum class Color { Red, Green, Blue };
+
+    static_assert(std::is_enum_v<Color>);
+
+    static_assert(!std::is_enum_v<Color&>);
+    static_assert(!std::is_enum_v<Color&&>);
+    static_assert(!std::is_enum_v<Color*>);
+    static_assert(!std::is_enum_v<const Color*>);
 }
