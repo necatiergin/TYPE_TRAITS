@@ -16,4 +16,10 @@ int main()
     static_assert(!std::is_enum_v<double>);
     static_assert(!std::is_enum_v<bool>);
     static_assert(!std::is_enum_v<void>);
+    enum class Color { Red, Green, Blue };
+
+    static_assert(std::is_enum_v<Color>);
+    static_assert(std::is_enum_v<const Color>);
+    static_assert(std::is_enum_v<volatile Color>);
+    static_assert(std::is_enum_v<const volatile Color>);
 }
